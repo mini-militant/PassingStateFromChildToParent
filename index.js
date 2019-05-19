@@ -7,20 +7,25 @@ class App extends Component {
   constructor(){
       super();
       this.state={
-        data:"Initial data.."
+        data:"Initial data..",
+        
       }
       this.updateState=this.updateState.bind(this);
     }
     updateState(){
-      this.setState({
-        data:"data updated from child component.."
+      
+      this.setState(function(prevState)
+      {
+        return{
+        data:"data updated from child component..", 
+        }
       })
     }
 
   render() {
     return (
       <div>
-        <Hello data={this.state.data}
+      <Hello data={this.state.data}
         UpdateDataProps={this.updateState} />
         
       </div>
